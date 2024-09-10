@@ -1,0 +1,46 @@
+We can use Golang’s inbuilt URL package through which can pass the raw url and URL package will parse the raw url and check if it is valid url or not.
+
+parsing url ->  breaking down a web address into its individual parts so that a computer can understand
+and use it to access a specific resource on the internet
+ 
+url.ParseRequestURI() -> ParseRequestURI parses a raw URL into a URL structure.
+If it is not a URL, it will return us an error code.
+ 
+                         	 Func url.PrarseRequestURI(string){*url.URI, error}
+We can use Golang’s inbuilt URL package through which can pass the raw url and URL package will parse the raw url and check if it is valid url or not.
+
+parsing url ->  breaking down a web address into its individual parts so that a computer can understand
+and use it to access a specific resource on the internet
+ 
+url.ParseRequestURI() -> ParseRequestURI parses a raw URL into a URL structure.
+If it is not a URL, it will return us an error code.
+ 
+                         	 Func url.PrarseRequestURI(string){*url.URI, error}
+ 
+So if there's no error, response will have the HTTP status code. Like 200 is okay, 404 is not found, 500 is server error, and so on.
+And it will also have the body. But the body is special. The body of the page can be bigger than our memory that we have available. So our body might not contain all the data from the HTTP output.
+ 
+So it's wrapped in a different variable, and that variable is a stream. Res.Body
+ 
+Once our program exits, we need to make sure that we close that stream, and to do that,
+we can use another keyword that we haven't used before.
+It's called defer.
+defer response.Body.Close().
+ 
+That means that once this function is finished, then at the end, our body which is our HTTP body,
+it'll be closed.
+ 
+"Body represents the response body. The response body is streamed on demand as the body field is read."
+ 
+So it doesn't contain all the information yet, because let's just imagine that we are downloading hundreds of megabytes of content. If it would all be downloaded instantly, then we would get an out of memory error. And that's why it is streamed and not all read at the same time.
+ 
+So that's why it's wrapped in a stream. And at the end of our program, you just have to close our stream.  You can just read it at once.  We know that our JSON output will fit in memory, so we can read it all at once.
+ 
+How do you read it all at once? There's another function built in Golang for that.
+io.ReadAll().
+ReadAll() will read from a reader, from an IO reader. It is a stream, and it'll read until the end of file.
+ 
+
+Making http calls to server using http.get()
+And returning the status code
+ 

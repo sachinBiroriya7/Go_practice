@@ -1,0 +1,17 @@
+We can pass argument to by using inbuilt package called “OS” and func Args()
+This takes args from the terminal and returns only a slice of string []string.
+The first argument passed to the program is always the name of the executable itself.
+
+
+Access of passed args can be done using Slicing [1:]
+
+
+Also we can pass argument through adding configuration to a file ,lauch.json 
+Here we can add our args
+VsCode  > Run  > add configuration  -> creates launch.json
+When no args are passed and we want to access the argument through slicing this gives a runtime error, which can be handled as below.
+
+            	if len(args) < 2 {
+	            	fmt.Println("No args passed")
+	            	os.Exit(1)
+	            }

@@ -1,0 +1,15 @@
+										Parse HTTP JSON Response
+
+we can parse  this JavaScript object  into a Golang struct
+
+this JSON library  that's going to convert this string into this struct.  This, JSON library will look for the, for this metadata  and when it sees page and it matches, it will  take  take the value  of that attribute and put it  into  our field.  Our struct field here.
+
+So with the JSON library, this will not work.  The JSON library need exported fields.  Otherwise the JSON library, which is  which is a different package  cannot access  directly these fields.  So we need to change our lowercase "w" in uppercase "W" of field, so extenal pacakges can access our fields.
+
+UnMarshal parses a JSON anchor data and stores the result  in the value pointed by,  V.
+                        err := json.Unmarshal(Respbody, &words)
+
+Unmarshal returns only error,ONLY error
+
+There's also a marshal function to do it your way around.  If you have a struct, you can also convert to a  JSON string.
+
