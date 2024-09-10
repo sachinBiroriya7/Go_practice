@@ -1,0 +1,12 @@
+Till above examples I have just one endpoint/route /words. which had concent 
+{"page":"occurrence","words":{"hello":1,"hola":1,"world":2}}
+
+if have anoother route /occurrence, which tells the count of occurrence of a words
+{"page":"occurrence","words":{"hello":1,"hola":1,"world":2}}
+
+same logic cant be written for both pages as then words is []string in /words and map[string]int in /occurrence.
+this can be handled in 2 ways, creating seprate routes, or In our case
+
+using switch cases, as apart from word all other content remain the same.
+if page == word , create word struct for word slice
+if page == occurrence, create occur struct for word map 
