@@ -29,9 +29,9 @@ Flow Diagram (Simplified):
 Start
 
 main() -> Check if a URL is provided. If not provided, print usage and exit.
+
+
 Request Handling (doRequest())
-
-
 Validate URL.
 If valid, perform HTTP GET request. If error or bad status code, return error and exit.
 
