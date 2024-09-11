@@ -1,0 +1,26 @@
+main  ->  doRequest (res) reads JSON response if it's "words" or "occurrence" ->  res.GetResponse (interface Method) 
+
+create one function to do the request. doRequest() 
+other function [GetResponse()] that will be responsible to parse the argument and then call the request function. 
+And if there's an error, print error.
+
+The response can actually be either words or occurrence because we are handling two API calls. 
+We have two different structs that we could potentially return.
+
+what we could do is we could say we are going to return words and occurrences, 
+but that's not very nice because if we have, 
+let's say five API calls then every time we'll have to change our return variables. 
+Ideally you don't really want to change your function signature every time that you add a feature 
+or add another API call here. 
+
+So we are going to choose something more generic. "INTERFACE" 
+
+If you use an interface that for example has one function GetResponse. 
+Then our res variable, from http.get(), will have this function that we can call get GetResponse. 
+And whether it's the words struct, or the occurrence struct We can have a different get response function for both of them.
+
+The Response interface defines a method called GetResponse(). Both Words and Occurrence structs implement this interface by providing their own implementation of the GetResponse() method, allowing them to be handled polymorphically.
+
+Processing the Response:
+Based on the value of page.Name, it decides whether the response contains words (Words struct) or word occurrences (Occurrence struct).
+It unmarshals the response body into the corresponding struct and returns the appropriate response, which implements the Response interface.
