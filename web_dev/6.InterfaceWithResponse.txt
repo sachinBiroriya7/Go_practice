@@ -24,3 +24,26 @@ The Response interface defines a method called GetResponse(). Both Words and Occ
 Processing the Response:
 Based on the value of page.Name, it decides whether the response contains words (Words struct) or word occurrences (Occurrence struct).
 It unmarshals the response body into the corresponding struct and returns the appropriate response, which implements the Response interface.
+
+Flow Diagram (Simplified):
+Start
+
+main() -> Check if a URL is provided. If not provided, print usage and exit.
+Request Handling (doRequest())
+
+
+Validate URL.
+If valid, perform HTTP GET request. If error or bad status code, return error and exit.
+
+
+Response Handling
+Unmarshal response into Page struct.
+Check page.Name to determine type ("words" or "occurrence").
+Unmarshal into respective struct (Words or Occurrence).
+
+
+Formatting the Response
+Use GetResponse() method of the returned struct to format the output.
+
+
+End
