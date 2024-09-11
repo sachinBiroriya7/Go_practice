@@ -43,6 +43,7 @@ func main() {
 		fmt.Printf("Invalid output (HTTP Code %d): %s\n", response.StatusCode, string(body))
 		os.Exit(1)
 	}
+
 	fmt.Println(string(body))
 
 	fmt.Println("************Parsed using structs *****************")
