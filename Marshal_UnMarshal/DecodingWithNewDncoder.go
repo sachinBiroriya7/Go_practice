@@ -39,3 +39,29 @@ func main() {
 
 	fmt.Println("Unmarshalled/Decoded json :", myTodo)
 }
+
+/*
+	//reading response body stream
+	body, err := io.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalf("Error in response Body :%v", err)
+	}
+	fmt.Println("Content :", string(body))
+
+	//unmarshalling json to struct
+	var myTodo Todo
+	json.Unmarshal(body, &myTodo)
+	fmt.Println("our data Struct :", myTodo)
+*/
+
+// this can be achieved directly by newDecoder Fuction
+
+/*newDecoder provides more flexibility and is suitable for decoding large JSON streams,
+while Unmarshal is a simpler option for decoding JSON data from memory.
+
+In fewer steps You can get data in our struct.
+avoids reading whole stream of body and then unmarshalling it to our structs
+
+
+it directly reads response body and decodes into our structs
+*/
